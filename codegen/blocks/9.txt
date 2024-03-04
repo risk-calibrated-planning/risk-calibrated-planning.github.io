@@ -1,3 +1,0 @@
-objects = ['red block', 'green block', 'blue block', 'orange block']
-# can you throw blocks.
-say('no, I can only move objects around')
