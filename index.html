@@ -63,18 +63,41 @@
         <div class="row justify-content-md-center">
             <div class="col-md-2 text-center">
                 <a href="https://arxiv.org/pdf/2403.15959.pdf">
-                <image src="img/paper_small.png" height="110px" width="85px">
+                    <image src="img/paper_small.png" height="110px" width="85px"></image>
                 <h4><strong>Paper</strong></h4>
                 </a>
             </div>
             <div class="col-md-2 text-center">
                 <a href="https://github.com/irom-lab/risk_calibrated_interactive_planning">
-                <image src="img/github.png"  height="110px">
+                <image src="img/github.png"  height="110px"></image>
                 <h4><strong>Code</strong></h4>
+                </a>
+            </div>
+            <div class="col-md-2 text-center">
+                <a href="https://drive.google.com/drive/folders/13qAaPCHEcx93BTcPwwXSITSm7LKsAohr?usp=sharing">
+                <image src="img/database.png"  height="110px"></image>
+                <h4><strong>
+                    Dataset
+                </strong></h4>
                 </a>
             </div>
         </div>
 
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-8">
+                <h3 class="mt-4 mb-2">
+                    Goal
+                </h3>
+                <p class="text-justify">
+                    In the setting of the robot with access to an intent prediction model (e.g., a VLM) and human help,
+                    we aim to achieve both: (1) risk calibration: the robot should seek sufficient help to ensure a
+                    statistically guaranteed level of task success specified by the user while also satisfying
+                    a limit on the human help rate, and (2) flexible autonomy: the robot should be able to tune its
+                    behavior (e.g., fewer errors with more help) by providing a range of prediction parameters that control
+                    its level of risk. We collectively refer to these sufficiency and minimality conditions as certifiable autonomy.
+                </p>
+            </div>
+        </div>
 
         <div class="row justify-content-md-center">
             <div class="col-md-10 col-lg-8">
@@ -100,13 +123,45 @@
                     predict and adapt to a diverse set of dynamic human intents.
                 </p>
                 <p style="text-align:center;">
-                    <image src="img/share_image.png" width="100%">
+                    <image src="img/fig1.png" width="60%"></image>
+<!--                    <embed type="application/pdf" src="img/figure1_tricolumn-compressed.pdf"></embed>-->
                 </p>
                 <div class="col-md-12">
-                    <video id="v0" width="100%" preload="metadata" playsinline controls>
+                    <video id="v0" width="60%" preload="metadata" playsinline controls>
                         <source src="videos/rcip_compressed.mp4" type="video/mp4">
                     </video>
                 </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-8">
+                <h3 class="mt-4 mb-2">
+                    Approach
+                </h3>
+                <p class="text-justify">
+                    RCIP builds upon statistical risk calibration (SRC) to formally quantify and bound multiple notions of
+                    risk in human-robot interaction (HRI).  Using a small set of calibration scenarios, RCIP computes step-wise prediction
+                    losses to form an aggregate emperical risk estimate. Using a risk limit, for each pair (λ,θ) of prediction thresholds
+                    and tunable model parameters, RCIP evaluates the hypothesis that the test set risk is above the limit.
+                    Thus, for all hypotheses that are rejected, the test set risk satisfies the threshold (with high probability).
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/fig2.png" width="60%"></image>
+<!--                    <embed type="application/pdf" src="img/figure1_tricolumn-compressed.pdf"></embed>-->
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/fig4.png" width="60%"></image>
+<!--                    <embed type="application/pdf" src="img/figure1_tricolumn-compressed.pdf"></embed>-->
+                </p>
+                <p class="text-justify">
+                    (Left, Center) Multi-step RCIP is applied in Social Navigation. The human’s trajectory is shown in pink, and the
+                    robot’s trajectory is shown in blue. The human’s possible goal objects are shown in orange. (Right) Single-step RCIP is applied
+                    in Bimanual Sorting. KnowNo, which generates plans in open-ended language, may generate a plan that is technically correct,
+                    but ambiguous to execute for a language-conditioned policy (both the blue and white bin have a pot). RCIP instead guarantees
+                    that the human’s intent is satisfied via constraint satisfaction with the intent-conditioned planner
+                </p>
+
             </div>
         </div>
     </div>
